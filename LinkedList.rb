@@ -1,39 +1,65 @@
 class LinkedListNode
     attr_accessor :value, :next_node
-
+  
     def initialize(value, next_node=nil)
-        @value = value
-        @next_node = next_node
+      @value = value
+      @next_node = next_node
     end
-
-    def list_node(value)
-        #list_node = ListNode.new(value)
-        if value.nil?
-            return list_node
-        else
-            value.next = next_node
-            list_node = next_node
-        end
-    end
-
+end
 
     def print_values(list_node)
-        #list_node = ListNode.new
         if list_node
-            print "#{list_node.value} -->"
-            print_values(list_node.next_node)
+          print "#{list_node.value} --> "
+          print_values(list_node.next_node)
         else
-            print "nil\n"
-            return
+          print "nil\n"
+          return
         end
+    end
+
+class Stack
+    attr_reader :data
+
+    def initialize
+        @data = nil
+    end
+
+    # Push a value onto the stack
+    def push(value)
+        @data = LinkedListNode.new(value, @data)
+    end
+
+    # Pop an item off the stack.
+    # Remove the last item that was pushed onto the
+    # stack and return the value to the user
+    def pop
+        @data.shift
+        print "#{@data.value}\n"
+        # I RETURN A VALUE
     end
 
 end
-list_node = ListNode.new
-list_node(37)
-list_node(99)
-list_node(12)
-#node1 = LinkedListNode.new(37)
-#node2 = LinkedListNode.new(99, node1)
-#node3 = LinkedListNode.new(12, node2)
-print_values(list_node)
+
+def reverse_list(list)
+    # ADD CODE HERE
+    stack = Stack.new
+    while list
+        # ADD CODE HERE
+        stack.push
+        list = list.next_node
+    end
+
+    # ADD CODE HERE
+    puts stack.pop.value
+end
+node1 = LinkedListNode.new(37)
+node2 = LinkedListNode.new(99, node1)
+node3 = LinkedListNode.new(12, node2)
+
+print_values(node3)
+
+puts "-------"
+
+revlist = reverse_list(node3)
+
+print_values(revlist)
