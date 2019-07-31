@@ -26,7 +26,8 @@ class Stack
 
     # Push a value onto the stack
     def push(value)
-        @data = LinkedListNode.new(value, @data)
+        @data = LinkedListNode.new(value)
+        @data.push
     end
 
     # Pop an item off the stack.
@@ -35,22 +36,23 @@ class Stack
     def pop
         @data.shift
         print "#{@data.value}\n"
+        @data = data.next_node
         # I RETURN A VALUE
     end
-
 end
 
 def reverse_list(list)
     # ADD CODE HERE
     stack = Stack.new
-    while list
+    
+    while list != nil
         # ADD CODE HERE
-        stack.push
+        stack.push = list
         list = list.next_node
     end
 
     # ADD CODE HERE
-    puts stack.pop.value
+    puts list.value
 end
 node1 = LinkedListNode.new(37)
 node2 = LinkedListNode.new(99, node1)
