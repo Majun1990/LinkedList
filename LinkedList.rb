@@ -47,7 +47,8 @@ def reverse_list(list)
     
     while list != nil
         # ADD CODE HERE
-        stack.push = list
+        stack.push = current_node
+        current_node.pop = list.next_node
         list = list.next_node
     end
 
